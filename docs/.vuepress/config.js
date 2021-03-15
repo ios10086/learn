@@ -1,6 +1,9 @@
 module.exports = {
-    title: 'Hello VuePress',
-    description: 'Just playing around',
+    title: 'Hello Fee',
+    base: "/learn/",
+    description: ' ',
+    dest: './dist',
+    port: 8086,
     themeConfig: {
         nav: [{
             text: 'Web开发技术积累',
