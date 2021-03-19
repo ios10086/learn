@@ -1,10 +1,10 @@
 ---
 home: true
-heroImage: /image/banner.jpg
+heroImage: /image/banner/banner.jpg
 heroText: 技术积累
 tagline: ''
 actionText: 请点击 →
-actionLink: /web/Webpack/
+actionLink: /web/React/Webpack/
 features:
 - title: ''
   details: ''

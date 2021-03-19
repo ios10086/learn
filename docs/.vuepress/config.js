@@ -7,13 +7,13 @@ module.exports = {
     themeConfig: {
         nav: [{
             text: 'Web开发技术积累',
-            link: '/web/Webpack.md'
+            link: '/web/React/Webpack.md'
         },
         {
             text: '自动化打包',
             link: '/jenkins/pipeline.md'
         }],
-        sidebarDepth: 2,
+        sidebarDepth: 1,
         locales: {
             '/': {
                 label: '简体中文',
@@ -32,17 +32,27 @@ module.exports = {
 
 function getWebSidebar(name) {
     return [{
-            title: name,
-            collapsable: false,
-            children: ['Webpack', 'Umi脚手架', 'This', 'Redux', 'React创建组件的三种方式及其区别', 'React Router', 'ES6语法', 'Flex布局', 'CSS预编译器及PostCSS', 'CSS模块化']
-        }
+            title: 'React',
+            collapsable: true,
+            children: ['React/Webpack', 'React/Umi脚手架', 'React/Redux', 'React/React创建组件的三种方式及其区别', 'React/React Router']
+        },
+        {
+            title: 'JS',
+            collapsable: true,
+            children: ['JS/原型和原型链', 'JS/This', 'JS/JS执行上下文', 'JS/箭头函数表达式', 'JS/JS运行机制']
+        },
+        {
+            title: 'CSS',
+            collapsable: true,
+            children: ['CSS/Flex布局', 'CSS/CSS预编译器及PostCSS', 'CSS/CSS模块化']
+        },
     ]
 }
 
 function getJenkinsSidebar(name) {
     return [{
-            title: name,
-            collapsable: false,
+            title: 'iOS自动化打包',
+            collapsable: true,
             children: ['自动化打包', 'pipeline']
         }
     ]

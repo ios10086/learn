@@ -1,4 +1,7 @@
+# JS运行机制
+
 # Promise
+
 ## 什么是Promise
 Promise对象用于异步操作，它表示一个尚未完成且预计在未来完成的异步操作。
 ## 为什么使用Promise
@@ -12,8 +15,9 @@ Promise对象代表一个未完成、但预计将来会完成的操作。
 
 - rejected：代表操作失败
   
+
 Promise有两种状态改变的方式，既可以从pending转变为fulfilled，也可以从pending转变为rejected。一旦状态改变，就会一直保持这个状态，不会再发生变化。当状态发生变化，promise.then绑定的函数就会被调用。
-  
+
   ```jsx
   var promise = new Promise(function (resolve, reject) {
       if (/* 异步操作成功 */) {
