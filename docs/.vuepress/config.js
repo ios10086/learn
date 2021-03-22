@@ -44,7 +44,7 @@ function getWebSidebar(name) {
         {
             title: 'CSS',
             collapsable: true,
-            children: ['特殊性、继承、层叠', '伪类、伪元素', '基本视觉格式化', '基本视觉格式化', '浮动和定位', '动画', '文本属性','CSS/Flex布局', 'CSS/CSS预编译器及PostCSS', 'CSS/CSS模块化']
+            children: ['CSS/特殊性、继承、层叠', 'CSS/伪类、伪元素', 'CSS/基本视觉格式化', 'CSS/基本视觉格式化', 'CSS/浮动和定位', 'CSS/动画', 'CSS/文本属性', 'CSS/Flex布局', 'CSS/CSS预编译器及PostCSS', 'CSS/CSS模块化']
         },
     ]
 }
