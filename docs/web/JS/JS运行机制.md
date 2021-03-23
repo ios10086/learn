@@ -1,59 +1,20 @@
 # JS运行机制
 
-# Promise
+## 任务队列
 
-## 什么是Promise
-Promise对象用于异步操作，它表示一个尚未完成且预计在未来完成的异步操作。
-## 为什么使用Promise
-Promise强大之处在于它的多重链式调用，可以避免层层嵌套回调。
-## Promise的基本用法
-Promise对象代表一个未完成、但预计将来会完成的操作。
-它有以下三种状态：
-- pending：初始值，不是fulfilled，也不是rejected
+JavaScript语言的一大特点就是单线程，为了利用多核CPU的计算能力，HTML5提出Web Worker标准，允许JavaScript脚本创建多个线程，但是子线程完全受主线程控制，且不得操作DOM。
 
-- fulfilled：代表操作成功
+1. 所有同步任务都在主线程上执行，形成一个[执行栈](http://www.ruanyifeng.com/blog/2013/11/stack.html)（execution context stack）。
+2. 主线程之外，还存在一个"任务队列"（task queue）。只要异步任务有了运行结果，就在"任务队列"之中放置一个事件。
+3. 一旦"执行栈"中的所有同步任务执行完毕，系统就会读取"任务队列"，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行。
+4. 主线程不断重复上面的第三步。
 
-- rejected：代表操作失败
-  
+## 事件和回调函数
 
-Promise有两种状态改变的方式，既可以从pending转变为fulfilled，也可以从pending转变为rejected。一旦状态改变，就会一直保持这个状态，不会再发生变化。当状态发生变化，promise.then绑定的函数就会被调用。
+"回调函数"（callback），就是那些会被主线程挂起来的代码。异步任务必须指定回调函数，当主线程开始执行异步任务，就是执行对应的回调函数。
 
-  ```jsx
-  var promise = new Promise(function (resolve, reject) {
-      if (/* 异步操作成功 */) {
-          resolve(data);
-      } else {
-          /* 异步操作失败 */
-          reject(error);
-      } 
-  });
-  ```
+"任务队列"是一个先进先出的数据结构，排在前面的事件，优先被主线程读取。主线程的读取过程基本上是自动的，只要执行栈一清空，"任务队列"上第一位的事件就自动进入主线程。但是，由于存在后文提到的"定时器"功能，主线程首先要检查一下执行时间，某些事件只有到了规定的时间，才能返回主线程。
 
+## Event Loop
 
-类似构建对象，我们使用new来构建一个Promise。Promise接受一个函数作为参数，该函数的两个参数分别是resolve和reject。这两个函数就是回调函数，由JavaScript引擎提供。
-
-resolve函数的作用：在异步操作成功时调用，并将异步操作的结果，作为参数传递出去。
-reject函数的作用：在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。
-
-Promise实例生成以后，可以用then方法指定resolved状态和reject状态的回调函数。
-
-```jsx
-promise.then(function(data) {
-  // do something when success
-}, function(error) {
-  // do something when failure
-});
-等同于
-promise.then(function(data) {
-    console.log('success');
-}).catch(function(error) {
-    console.log('error', error);
-});
-
-.catch()
-语法：Promise.prototype.catch(onRejected)
-.then(undefined, onRejected)的别名，用于指定发生错误时的回调函数
-```
-
-
-
+主线程从"任务队列"中读取事件，这个过程是循环不断的，所以整个的这种运行机制又称为Event Loop（事件循环）。

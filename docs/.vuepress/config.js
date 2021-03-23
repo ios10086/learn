@@ -39,7 +39,7 @@ function getWebSidebar(name) {
         {
             title: 'JS',
             collapsable: true,
-            children: ['JS/原型和原型链', 'JS/This', 'JS/JS执行上下文', 'JS/箭头函数表达式', 'JS/JS运行机制']
+            children: ['JS/原型和原型链', 'JS/This', 'JS/JS执行上下文', 'JS/JS运行机制', 'JS/Service Workers、Web Workers', 'JS/箭头函数表达式', 'JS/Promise和async、await']
         },
         {
             title: 'CSS',
