@@ -11,11 +11,12 @@ Promise强大之处在于它的多重链式调用，可以避免层层嵌套回�
 Promise对象代表一个未完成、但预计将来会完成的操作。
 它有以下三种状态：
 
-- pending：初始值，不是fulfilled，也不是rejected
-
-- fulfilled：代表操作成功
-
-- rejected：代表操作失败
+> - pending：初始值，不是fulfilled，也不是rejected
+>
+> - fulfilled：代表操作成功
+>
+> - rejected：代表操作失败
+>
 
 Promise有两种状态改变的方式，既可以从pending转变为fulfilled，也可以从pending转变为rejected。一旦状态改变，就会一直保持这个状态，不会再发生变化。当状态发生变化，promise.then绑定的函数就会被调用。
 
@@ -105,4 +106,8 @@ async function f() {
   return await('hello world');
 }
 ```
+
+
+
+<u>单线程非阻塞模式</u>
 
