@@ -2,17 +2,138 @@
 
 webpack 是一个用于现代 JavaScript 应用程序的静态模块打包工具。
 
+## 基本用法
+
+1. 在项目根目录用`npm init`初始化，生成package.json文件
+
+   ```js
+   npm init
+   ```
+
+   ```js
+   name: (webpackDemo) // 项目名称
+   version: (1.0.0) // 版本号
+   description: // 项目的描述
+   entry point: (index.js) // 入口文件
+   test command: // 测试命令
+   git repository: // git仓库
+   keywords: // 关键字
+   author: // 作者创始人
+    license: (ISC) //许可:(ISC)
+   About to write to C:\Users\Administrator\Desktop\webpackDemo\package.json:
+   
+   {
+     "name": "webpackdemo",
+     "version": "1.0.0",
+     "description": "",
+     "main": "index.js",
+     "scripts": {
+       "test": "echo \"Error: no test specified\" && exit 1"
+     },
+     "author": "",
+     "license": "ISC"
+   }
+   
+   Is this ok? (yes) // 这里直接输入yes就可以了
+   ```
+
+2. 安装webpack
+
+   ```js
+   npm install webpack -g // 全局安装
+   npm install webpack --save-dev // 项目内安装
+   //可以在webpack后面加一个@再填入想要安装的版本号
+   npm install webpack@xx -g
+   npm install webpack@xx --save-dev
+   ```
+
+   ```json
+   {
+     "name": "webpackdemo",
+     "version": "1.0.0",
+     "description": "",
+     "main": "index.js",
+     "scripts": {
+       "test": "echo \"Error: no test specified\" && exit 1"
+     },
+     "author": "",
+     "license": "ISC",
+     "devDependencies": {
+       "webpack": "^3.5.6"
+     }
+   }
+   ```
+
+   webpack4版需要去额外安装`webpack-cli`
+
+   ```js
+   npm install webpack@4 --save-dev
+   npm install webpack@4 webpack-cli --save-dev
+   ```
+
+   ```json
+   {
+     "name": "webpackdemo",
+     "version": "1.0.0",
+     "description": "",
+     "main": "index.js",
+     "scripts": {
+       "test": "echo \"Error: no test specified\" && exit 1"
+     },
+     "author": "",
+     "license": "ISC",
+     "devDependencies": {
+       "webpack": "^4.29.5",
+       "webpack-cli": "^3.2.3",
+     }
+   }
+   ```
+
+3. 使用webpack打包
+
+   在终端命令行太麻烦，可以在package.json里面配置一下启动命令，和打包命令。
+
+   ```js
+   "scripts": {
+       "start" : "webpack-dev-server --config=config/webpack.dev.js",
+       "build" : "webpack --config=config/webpack.dev.js"
+    },
+   ```
+
+4. 通过配置文件`webpack.config.js`来使用webpack。
+
 ## 入口（entry）
 
 默认值是 `./src/index.js`，可以通过在 webpack configuration中配置 `entry` 属性，来指定一个（或多个）不同的入口起点。
 
-**webpack.config.js**
+### 单个入口（简写）语法   
+
+用法：`entry: string | [string]`
+
+#### webpack.config.js
 
 ```js
 module.exports = {
   entry: './path/to/my/entry/file.js',
 };
 ```
+
+### 对象语法 
+
+用法：`entry: { <entryChunkName> string | [string] } | {}`
+
+#### webpack.config.js
+
+```js
+module.exports = {
+  entry: {
+    app: './src/app.js',
+    adminApp: './src/adminApp.js',
+  },
+};
+```
+
+可以分离 app(应用程序) 和 vendor(第三方库) 入口和多页面应用程序 
 
 ## 输出（output）
 
@@ -24,10 +145,13 @@ module.exports = {
 const path = require('path');
 
 module.exports = {
-  entry: './path/to/my/entry/file.js',
+	entry: {
+    app: './src/app.js',
+    search: './src/search.js',
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'my-first-webpack.bundle.js',
+    filename: '[name].js',	//使用 占位符(substitutions) 来确保每个文件具有唯一的名称
   },
 };
 ```
@@ -43,17 +167,28 @@ loader让 webpack 能够去处理其他类型的文件，并将它们转换为�
 
 **webpack.config.js**
 
-```javascript
-const path = require('path');
-
+```js
 module.exports = {
-  output: {
-    filename: 'my-first-webpack.bundle.js',
-  },
   module: {
-    rules: [{ test: /\.txt$/, use: 'raw-loader' }],
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true
+            }
+          },
+          { loader: 'sass-loader' }
+        ]
+      },
+      { test: /\.ts$/, use: 'ts-loader' },
+    ],
   },
 };
+
 ```
 
 在 webpack 配置中定义 rules 时，要定义在 `module.rules` 而不是 `rules`中。
@@ -386,4 +521,5 @@ module.exports = {
 }
 ```
 
-## 基本用法
+## 
+

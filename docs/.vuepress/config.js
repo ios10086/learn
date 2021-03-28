@@ -34,7 +34,7 @@ function getWebSidebar(name) {
     return [{
             title: 'React',
             collapsable: true,
-            children: ['React/Webpack', 'React/Umi脚手架', 'React/Redux', 'React/React创建组件的三种方式及其区别', 'React/React Router']
+            children: ['React/Webpack', 'React/脚手架', 'React/Redux', 'React/React创建组件的三种方式及其区别', 'React/React Router']
         },
         {
             title: 'JS',
