@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>自动化打包 | Hello Fee</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content=" ">
+    
+    <link rel="preload" href="/learn/assets/css/0.styles.f9e7e70e.css" as="style"><link rel="preload" href="/learn/assets/js/app.66695850.js" as="script"><link rel="preload" href="/learn/assets/js/2.7a3d2d1f.js" as="script"><link rel="preload" href="/learn/assets/js/9.6ed0d27e.js" as="script"><link rel="prefetch" href="/learn/assets/js/10.a0bd4e38.js"><link rel="prefetch" href="/learn/assets/js/11.436e7e98.js"><link rel="prefetch" href="/learn/assets/js/12.df360245.js"><link rel="prefetch" href="/learn/assets/js/13.05fbb1e7.js"><link rel="prefetch" href="/learn/assets/js/14.fe98bd90.js"><link rel="prefetch" href="/learn/assets/js/15.06279f84.js"><link rel="prefetch" href="/learn/assets/js/16.abddb71c.js"><link rel="prefetch" href="/learn/assets/js/17.cdd2aadf.js"><link rel="prefetch" href="/learn/assets/js/18.625021ac.js"><link rel="prefetch" href="/learn/assets/js/19.1a143131.js"><link rel="prefetch" href="/learn/assets/js/20.b870cc06.js"><link rel="prefetch" href="/learn/assets/js/21.495a1d29.js"><link rel="prefetch" href="/learn/assets/js/22.c0242662.js"><link rel="prefetch" href="/learn/assets/js/23.3736fed9.js"><link rel="prefetch" href="/learn/assets/js/24.e45190ec.js"><link rel="prefetch" href="/learn/assets/js/25.b587963e.js"><link rel="prefetch" href="/learn/assets/js/26.56b08eb4.js"><link rel="prefetch" href="/learn/assets/js/27.d772fdba.js"><link rel="prefetch" href="/learn/assets/js/28.20b3b6da.js"><link rel="prefetch" href="/learn/assets/js/29.7c28dfd9.js"><link rel="prefetch" href="/learn/assets/js/3.d3d0f4e1.js"><link rel="prefetch" href="/learn/assets/js/30.9e995d3c.js"><link rel="prefetch" href="/learn/assets/js/31.c5b02dbb.js"><link rel="prefetch" href="/learn/assets/js/32.70462fff.js"><link rel="prefetch" href="/learn/assets/js/4.e05c873c.js"><link rel="prefetch" href="/learn/assets/js/5.f3e6ed41.js"><link rel="prefetch" href="/learn/assets/js/6.498ab014.js"><link rel="prefetch" href="/learn/assets/js/7.3f5168c2.js"><link rel="prefetch" href="/learn/assets/js/8.757924d2.js">
+    <link rel="stylesheet" href="/learn/assets/css/0.styles.f9e7e70e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/learn/" class="home-link router-link-active"><!----> <span class="site-name">Hello Fee</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/learn/web/React/Webpack.html" class="nav-link">
+  Web开发技术积累
+</a></div><div class="nav-item"><a href="/learn/jenkins/pipeline.html" class="nav-link">
+  自动化打包
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/learn/web/React/Webpack.html" class="nav-link">
+  Web开发技术积累
+</a></div><div class="nav-item"><a href="/learn/jenkins/pipeline.html" class="nav-link">
+  自动化打包
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>iOS自动化打包</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/learn/jenkins/自动化打包.html" class="active sidebar-link">自动化打包</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/learn/jenkins/pipeline.html" class="sidebar-link">PipeLine</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="自动化打包"><a href="#自动化打包" class="header-anchor">#</a> 自动化打包</h1> <h3 id="打包脚本"><a href="#打包脚本" class="header-anchor">#</a> 打包脚本</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token shebang important">#!/bin/sh</span>
+
+<span class="token comment"># 使用方法:</span>
+<span class="token comment"># step1: 将该脚本放在工程的根目录下（跟.xcworkspace文件or .xcodeproj文件同目录）</span>
+<span class="token comment"># step2: 根据情况修改下面的参数</span>
+<span class="token comment"># step3: 打开终端，执行脚本。（输入sh ，然后将脚本文件拉到终端，会生成文件路径，然后enter就可）</span>
+
+<span class="token comment"># =============项目自定义部分(自定义好下列参数后再执行该脚本)=================== #</span>
+
+<span class="token comment"># 是否编译工作空间 (例:若是用Cocopods管理的.xcworkspace项目,赋值true;用Xcode默认创建的.xcodeproj,赋值false)</span>
+<span class="token assign-left variable">is_workspace</span><span class="token operator">=</span><span class="token string">&quot;true&quot;</span>
+
+<span class="token comment"># .xcworkspace的名字，如果is_workspace为true，则必须填。否则可不填</span>
+<span class="token assign-left variable">workspace_name</span><span class="token operator">=</span><span class="token string">&quot;hlEAM&quot;</span>
+
+<span class="token comment"># .xcodeproj的名字，如果is_workspace为false，则必须填。否则可不填</span>
+<span class="token assign-left variable">project_name</span><span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+
+<span class="token comment"># 指定项目的scheme名称（也就是工程的target名称），必填</span>
+<span class="token assign-left variable">scheme_name</span><span class="token operator">=</span><span class="token string">&quot;hlEAM&quot;</span>
+
+<span class="token comment"># 指定要打包编译的方式 : Release,Debug。一般用Release。必填</span>
+<span class="token assign-left variable">build_configuration</span><span class="token operator">=</span><span class="token string">&quot;Release&quot;</span>
+
+<span class="token comment"># method，打包的方式。方式分别为 development, ad-hoc, app-store, enterprise 。必填</span>
+<span class="token assign-left variable">method</span><span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+
+<span class="token comment">#  下面两个参数只是在手动指定Pofile文件的时候用到，如果使用Xcode自动管理Profile,直接留空就好</span>
+<span class="token comment"># (跟method对应的)mobileprovision文件名，需要先双击安装.mobileprovision文件.手动管理Profile时必填</span>
+<span class="token assign-left variable">mobileprovision_name</span><span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+
+<span class="token comment"># 项目的bundleID，手动管理Profile时必填</span>
+<span class="token assign-left variable">bundle_identifier</span><span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+
+<span class="token comment"># APP名称</span>
+<span class="token assign-left variable">display_name</span><span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+
+<span class="token comment"># APP版本</span>
+<span class="token assign-left variable">app_version</span><span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+
+<span class="token comment"># 平台上传包地址</span>
+<span class="token assign-left variable">plant_url</span><span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+
+<span class="token comment"># 项目构建编号</span>
+<span class="token assign-left variable">build_number</span><span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+
+<span class="token comment">#框架版本</span>
+<span class="token assign-left variable">shell_branch</span><span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+
+<span class="token comment">#隐患版本</span>
+<span class="token assign-left variable">yh_branch</span><span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+
+<span class="token comment">#安全版本</span>
+<span class="token assign-left variable">ses_other_branch</span><span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+
+<span class="token comment">#设备版本</span>
+<span class="token assign-left variable">eam_branch</span><span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+
+<span class="token comment">#作业版本</span>
+<span class="token assign-left variable">wts_branch</span><span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+
+<span class="token keyword">while</span> <span class="token builtin class-name">getopts</span> <span class="token string">'a:b:c:d:e:f:g:h:i:j:k:m:'</span> OPT<span class="token punctuation">;</span> <span class="token keyword">do</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$OPTARG</span>&quot;</span>
+    <span class="token keyword">case</span> <span class="token variable">$OPT</span> <span class="token keyword">in</span>
+        a<span class="token punctuation">)</span>
+            <span class="token assign-left variable">method</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">$OPTARG</span>&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+        b<span class="token punctuation">)</span>
+            <span class="token assign-left variable">bundle_identifier</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">$OPTARG</span>&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+        c<span class="token punctuation">)</span>
+            <span class="token assign-left variable">display_name</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">$OPTARG</span>&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+        d<span class="token punctuation">)</span>
+            <span class="token assign-left variable">app_version</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">$OPTARG</span>&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+        e<span class="token punctuation">)</span>
+            <span class="token assign-left variable">ipa_name</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">$OPTARG</span>&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+        f<span class="token punctuation">)</span>
+            <span class="token assign-left variable">plant_url</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">$OPTARG</span>&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+        g<span class="token punctuation">)</span>
+            <span class="token assign-left variable">build_number</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">$OPTARG</span>&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+        h<span class="token punctuation">)</span>
+            <span class="token assign-left variable">shell_branch</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">$OPTARG</span>&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+        i<span class="token punctuation">)</span>
+            <span class="token assign-left variable">yh_branch</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">$OPTARG</span>&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+        j<span class="token punctuation">)</span>
+            <span class="token assign-left variable">ses_other_branch</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">$OPTARG</span>&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+        k<span class="token punctuation">)</span>
+            <span class="token assign-left variable">eam_branch</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">$OPTARG</span>&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+        m<span class="token punctuation">)</span>
+            <span class="token assign-left variable">wts_branch</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">$OPTARG</span>&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+        ?<span class="token punctuation">)</span>
+            <span class="token builtin class-name">echo</span> <span class="token string">&quot;Usage: <span class="token variable"><span class="token variable">`</span><span class="token function">basename</span> $0<span class="token variable">`</span></span> [options] filename&quot;</span>
+    <span class="token keyword">esac</span>
+<span class="token keyword">done</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;啊啊啊啊啊&quot;</span>
+
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;--------------------脚本配置参数检查--------------------&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;is_workspace=<span class="token variable">${is_workspace}</span> &quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;workspace_name=<span class="token variable">${workspace_name}</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;project_name=<span class="token variable">${project_name}</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;scheme_name=<span class="token variable">${scheme_name}</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;build_configuration=<span class="token variable">${build_configuration}</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;bundle_identifier=<span class="token variable">${bundle_identifier}</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;method=<span class="token variable">${method}</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;mobileprovision_name=<span class="token variable">${mobileprovision_name}</span>&quot;</span>
+
+
+<span class="token comment"># =======================脚本的一些固定参数定义(无特殊情况不用修改)====================== #</span>
+
+<span class="token comment">## 获取当前脚本所在目录</span>
+<span class="token comment">#script_dir=&quot;$( cd &quot;$( dirname &quot;$0&quot;  )&quot; &amp;&amp; pwd  )&quot;</span>
+
+<span class="token comment">#xworkspace路径</span>
+<span class="token assign-left variable">script_dir</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${WORKSPACE}</span>/ISupPlant&quot;</span>
+
+<span class="token comment"># 工程根目录</span>
+<span class="token assign-left variable">project_dir</span><span class="token operator">=</span><span class="token variable">$script_dir</span>
+
+<span class="token comment"># 时间</span>
+<span class="token assign-left variable">DATE</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">date</span> <span class="token string">'+%Y%m%d_%H%M%S'</span><span class="token variable">`</span></span>
+<span class="token comment"># 指定输出导出文件夹路径</span>
+<span class="token comment">#export_path=&quot;$project_dir/Package/$scheme_name-$DATE&quot;</span>
+<span class="token assign-left variable">export_path</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${WORKSPACE}</span>/Package/<span class="token variable">$scheme_name</span>-<span class="token variable">$DATE</span>&quot;</span>
+<span class="token comment"># 指定输出归档文件路径</span>
+<span class="token assign-left variable">export_archive_path</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">$export_path</span>/<span class="token variable">$scheme_name</span>.xcarchive&quot;</span>
+<span class="token comment"># 指定输出ipa文件夹路径</span>
+<span class="token assign-left variable">export_ipa_path</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">$export_path</span>&quot;</span>
+<span class="token comment"># 指定输出ipa名称</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> ipa_name <span class="token operator">=</span> <span class="token string">&quot;&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+<span class="token assign-left variable">ipa_name</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${scheme_name}</span>_<span class="token variable">${DATE}</span>&quot;</span>
+<span class="token keyword">fi</span>
+<span class="token comment"># 指定导出ipa包需要用到的plist配置文件的路径</span>
+<span class="token assign-left variable">export_options_plist_path</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">$project_dir</span>/ExportOptions.plist&quot;</span>
+
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;--------------------脚本固定参数检查--------------------&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;project_dir=<span class="token variable">${project_dir}</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;DATE=<span class="token variable">${DATE}</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;export_path=<span class="token variable">${export_path}</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;export_archive_path=<span class="token variable">${export_archive_path}</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;export_ipa_path=<span class="token variable">${export_ipa_path}</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;export_options_plist_path=<span class="token variable">${export_options_plist_path}</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;ipa_name=<span class="token variable">${ipa_name}</span>&quot;</span>
+
+<span class="token comment"># =======================增加业务模块版本信息====================== #</span>
+/usr/libexec/PlistBuddy -c <span class="token string">&quot;Set :modelBranch:SHELL_BRANCH <span class="token variable">${shell_branch}</span>&quot;</span> <span class="token variable">${project_dir}</span>/hlEAM/Info.plist
+/usr/libexec/PlistBuddy -c <span class="token string">&quot;Set :modelBranch::YH_BRANCH <span class="token variable">${yh_branch}</span>&quot;</span> <span class="token variable">${project_dir}</span>/hlEAM/Info.plist
+/usr/libexec/PlistBuddy -c <span class="token string">&quot;Set :modelBranch::SES_OTHER_BRANCH <span class="token variable">${ses_other_branch}</span>&quot;</span> <span class="token variable">${project_dir}</span>/hlEAM/Info.plist
+/usr/libexec/PlistBuddy -c <span class="token string">&quot;Set :modelBranch::EAM_BRANCH <span class="token variable">${eam_branch}</span>&quot;</span> <span class="token variable">${project_dir}</span>/hlEAM/Info.plist
+/usr/libexec/PlistBuddy -c <span class="token string">&quot;Set :modelBranch::WTS_BRANCH <span class="token variable">${wts_branch}</span>&quot;</span> <span class="token variable">${project_dir}</span>/hlEAM/Info.plist
+
+<span class="token comment"># =======================修改APP配置信息====================== #</span>
+<span class="token builtin class-name">cd</span> <span class="token variable">${project_dir}</span>/hlEAM.xcodeproj
+<span class="token function">sed</span> -i <span class="token string">&quot;&quot;</span> <span class="token string">&quot;s/com.supcon.mobile.iSupPlant/<span class="token variable">${bundle_identifier}</span>/g&quot;</span> project.pbxproj
+/usr/libexec/PlistBuddy -c <span class="token string">&quot;Set :CFBundleDisplayName <span class="token variable">${display_name}</span>&quot;</span> <span class="token variable">${project_dir}</span>/hlEAM/Info.plist
+/usr/libexec/PlistBuddy -c <span class="token string">&quot;Set :ipa_name <span class="token variable">${ipa_name}</span>&quot;</span> <span class="token variable">${project_dir}</span>/hlEAM/about.plist
+
+<span class="token builtin class-name">cd</span> <span class="token variable">${project_dir}</span>
+xcrun agvtool new-marketing-version <span class="token variable">${app_version}</span>
+
+<span class="token comment"># =======================自动打包部分(无特殊情况不用修改)====================== #</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;------------------------------------------------------&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;开始构建项目&quot;</span>
+<span class="token comment"># 进入项目工程目录</span>
+<span class="token builtin class-name">cd</span> <span class="token variable">${project_dir}</span>
+
+
+<span class="token comment"># 指定输出文件目录不存在则创建</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> -d <span class="token string">&quot;<span class="token variable">$export_path</span>&quot;</span> <span class="token punctuation">]</span> <span class="token punctuation">;</span> <span class="token keyword">then</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$export_path</span>
+<span class="token keyword">else</span>
+<span class="token function">mkdir</span> -pv <span class="token variable">$export_path</span>
+<span class="token keyword">fi</span>
+
+<span class="token comment"># 判断编译的项目类型是workspace还是project</span>
+<span class="token keyword">if</span> <span class="token variable">$is_workspace</span> <span class="token punctuation">;</span> <span class="token keyword">then</span>
+<span class="token comment"># 编译前清理工程</span>
+xcodebuild clean -workspace <span class="token variable">${workspace_name}</span>.xcworkspace <span class="token punctuation">\</span>
+-scheme <span class="token variable">${scheme_name}</span> <span class="token punctuation">\</span>
+-configuration <span class="token variable">${build_configuration}</span>
+
+xcodebuild archive -workspace <span class="token variable">${workspace_name}</span>.xcworkspace <span class="token punctuation">\</span>
+-scheme <span class="token variable">${scheme_name}</span> <span class="token punctuation">\</span>
+-configuration <span class="token variable">${build_configuration}</span> <span class="token punctuation">\</span>
+-archivePath <span class="token variable">${export_archive_path}</span>
+<span class="token keyword">else</span>
+<span class="token comment"># 编译前清理工程</span>
+xcodebuild clean -project <span class="token variable">${project_name}</span>.xcodeproj <span class="token punctuation">\</span>
+-scheme <span class="token variable">${scheme_name}</span> <span class="token punctuation">\</span>
+-configuration <span class="token variable">${build_configuration}</span>
+
+xcodebuild archive -project <span class="token variable">${project_name}</span>.xcodeproj <span class="token punctuation">\</span>
+-scheme <span class="token variable">${scheme_name}</span> <span class="token punctuation">\</span>
+-configuration <span class="token variable">${build_configuration}</span> <span class="token punctuation">\</span>
+-archivePath <span class="token variable">${export_archive_path}</span>
+<span class="token keyword">fi</span>
+
+<span class="token comment">#  检查是否构建成功</span>
+<span class="token comment">#  xcarchive 实际是一个文件夹不是一个文件所以使用 -d 判断</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> -d <span class="token string">&quot;<span class="token variable">$export_archive_path</span>&quot;</span> <span class="token punctuation">]</span> <span class="token punctuation">;</span> <span class="token keyword">then</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;项目构建成功 🚀 🚀 🚀&quot;</span>
+<span class="token keyword">else</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;项目构建失败 😢 😢 😢&quot;</span>
+<span class="token builtin class-name">exit</span> <span class="token number">1</span>
+<span class="token keyword">fi</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;------------------------------------------------------&quot;</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;开始导出ipa文件&quot;</span>
+
+
+<span class="token comment"># 先删除export_options_plist文件</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> -f <span class="token string">&quot;<span class="token variable">$export_options_plist_path</span>&quot;</span> <span class="token punctuation">]</span> <span class="token punctuation">;</span> <span class="token keyword">then</span>
+<span class="token comment">#echo &quot;${export_options_plist_path}文件存在，进行删除&quot;</span>
+<span class="token function">rm</span> -f <span class="token variable">$export_options_plist_path</span>
+<span class="token keyword">fi</span>
+<span class="token comment"># 根据参数生成export_options_plist文件</span>
+/usr/libexec/PlistBuddy -c  <span class="token string">&quot;Add :method String <span class="token variable">${method}</span>&quot;</span>  <span class="token variable">$export_options_plist_path</span>
+/usr/libexec/PlistBuddy -c  <span class="token string">&quot;Add :provisioningProfiles:&quot;</span>  <span class="token variable">$export_options_plist_path</span>
+/usr/libexec/PlistBuddy -c  <span class="token string">&quot;Add :provisioningProfiles:<span class="token variable">${bundle_identifier}</span> String <span class="token variable">${mobileprovision_name}</span>&quot;</span>  <span class="token variable">$export_options_plist_path</span>
+
+
+xcodebuild  -exportArchive <span class="token punctuation">\</span>
+-archivePath <span class="token variable">${export_archive_path}</span> <span class="token punctuation">\</span>
+-exportPath <span class="token variable">${export_ipa_path}</span> <span class="token punctuation">\</span>
+-exportOptionsPlist <span class="token variable">${export_options_plist_path}</span> <span class="token punctuation">\</span>
+-allowProvisioningUpdates
+
+<span class="token comment"># 检查ipa文件是否存在</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> -f <span class="token string">&quot;<span class="token variable">$export_ipa_path</span>/<span class="token variable">$scheme_name</span>.ipa&quot;</span> <span class="token punctuation">]</span> <span class="token punctuation">;</span> <span class="token keyword">then</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;exportArchive ipa包成功,准备进行重命名&quot;</span>
+<span class="token keyword">else</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;exportArchive ipa包失败 😢 😢 😢&quot;</span>
+<span class="token builtin class-name">exit</span> <span class="token number">1</span>
+<span class="token keyword">fi</span>
+
+<span class="token comment"># 修改ipa文件名称</span>
+<span class="token function">mv</span> <span class="token string">&quot;<span class="token variable">${export_ipa_path}</span>/<span class="token variable">${scheme_name}</span>.ipa&quot;</span> <span class="token string">&quot;<span class="token variable">${export_ipa_path}</span>/<span class="token variable">${ipa_name}</span>.ipa&quot;</span>
+
+<span class="token comment"># 检查文件是否存在</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> -f <span class="token string">&quot;<span class="token variable">$export_ipa_path</span>/<span class="token variable">$ipa_name</span>.ipa&quot;</span> <span class="token punctuation">]</span> <span class="token punctuation">;</span> <span class="token keyword">then</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;导出 <span class="token variable">${ipa_name}</span>.ipa 包成功 🎉  🎉  🎉&quot;</span>
+<span class="token function">open</span> <span class="token variable">$export_path</span>
+<span class="token keyword">else</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;导出 <span class="token variable">${ipa_name}</span>.ipa 包失败 😢 😢 😢&quot;</span>
+<span class="token builtin class-name">exit</span> <span class="token number">1</span>
+<span class="token keyword">fi</span>
+
+<span class="token comment"># 删除export_options_plist文件（中间文件）</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> -f <span class="token string">&quot;<span class="token variable">$export_options_plist_path</span>&quot;</span> <span class="token punctuation">]</span> <span class="token punctuation">;</span> <span class="token keyword">then</span>
+<span class="token comment">#echo &quot;${export_options_plist_path}文件存在，准备删除&quot;</span>
+<span class="token function">rm</span> -f <span class="token variable">$export_options_plist_path</span>
+<span class="token keyword">fi</span>
+
+<span class="token comment"># 输出打包总用时</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;使用AutoPackageScript打包总用时: <span class="token variable">${<span class="token environment constant">SECONDS</span>}</span>s&quot;</span>
+
+<span class="token assign-left variable">filePath</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">$export_ipa_path</span>/<span class="token variable">$ipa_name</span>.ipa&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;3333:<span class="token variable">$filePath</span>&quot;</span>
+
+<span class="token comment">## 上传到蒲公英</span>
+<span class="token comment">#json=$(curl -F &quot;file=@$filePath&quot; \</span>
+<span class="token comment">#-F &quot;uKey=61860b1a4b5c365ee9c9bf880ef9dbf5&quot; \</span>
+<span class="token comment">#-F &quot;_api_key=08820f98036185e42ca4dfb53d426683&quot; \</span>
+<span class="token comment">#https://www.pgyer.com/apiv1/app/upload)</span>
+<span class="token comment">#</span>
+<span class="token comment">## 蒲公英下载地址</span>
+<span class="token comment">#url=$(echo $json | jq -r '.data|.appQRCodeURL')</span>
+<span class="token comment">#</span>
+<span class="token comment">## 生成json文件</span>
+<span class="token comment">#cd &quot;${WORKSPACE}&quot;</span>
+<span class="token comment">#echo &quot;{</span>
+<span class="token comment">#\&quot;url\&quot;:\&quot;$url\&quot;</span>
+<span class="token comment">#}&quot; &gt; url.json</span>
+
+<span class="token comment"># 上传到平台</span>
+<span class="token assign-left variable">json</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> -F <span class="token string">&quot;file=@<span class="token variable">$filePath</span>&quot;</span> <span class="token punctuation">\</span>
+-F <span class="token string">&quot;buildNumber=<span class="token variable">${build_number}</span>&quot;</span> <span class="token punctuation">\</span>
+$plant_url/inter-api/mobile-platform/v1/appVersion/callback<span class="token variable">)</span></span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;4444:<span class="token variable">$json</span>&quot;</span>
+
+<span class="token comment"># 平台下载地址</span>
+<span class="token assign-left variable">url</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">echo</span> $json <span class="token operator">|</span> jq -r <span class="token string">'.data|.downloadUrl'</span><span class="token variable">)</span></span>
+<span class="token assign-left variable">updateDescription</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">echo</span> $json <span class="token operator">|</span> jq -r <span class="token string">'.data|.updateDescription'</span><span class="token variable">)</span></span>
+
+<span class="token comment"># 生成json文件</span>
+<span class="token builtin class-name">cd</span> <span class="token string">&quot;<span class="token variable">${WORKSPACE}</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;{
+<span class="token entity" title="\&quot;">\&quot;</span>url<span class="token entity" title="\&quot;">\&quot;</span>:<span class="token entity" title="\&quot;">\&quot;</span><span class="token variable">$url</span><span class="token entity" title="\&quot;">\&quot;</span>,
+<span class="token entity" title="\&quot;">\&quot;</span>updateDescription<span class="token entity" title="\&quot;">\&quot;</span>:<span class="token entity" title="\&quot;">\&quot;</span><span class="token variable">$updateDescription</span><span class="token entity" title="\&quot;">\&quot;</span>
+}&quot;</span> <span class="token operator">&gt;</span> url.json
+
+<span class="token builtin class-name">exit</span> <span class="token number">0</span>
+
+
+</code></pre></div><h3 id="jenkins安装"><a href="#jenkins安装" class="header-anchor">#</a> jenkins安装</h3> <p>使用系统自带的homebrew来安装Jenkins,在终端中运行:</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ brew <span class="token function">install</span> Jenkins  
+</code></pre></div><p>启动Jenkins</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ jenkins
+</code></pre></div><p>浏览器输入http://localhost:8080打开jenkins。</p> <h3 id="jenkins插件安装"><a href="#jenkins插件安装" class="header-anchor">#</a> jenkins插件安装</h3> <p><img src="/Users/mac/Desktop/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%89%93%E5%8C%85/%E6%8F%92%E4%BB%B61.png" alt=""></p> <h5 id="keychains-and-provisioning-profiles-management"><a href="#keychains-and-provisioning-profiles-management" class="header-anchor">#</a> Keychains and Provisioning Profiles Management</h5> <p>管理本地的keychain和iOS证书的插件</p> <h5 id="xcode-integration"><a href="#xcode-integration" class="header-anchor">#</a> Xcode integration</h5> <p>用于xcode构建</p> <h5 id="fir-plugin"><a href="#fir-plugin" class="header-anchor">#</a> fir-plugin</h5> <p>将移动应用程序（Android，iOS等）发布到<a href="http://fir.im/" target="_blank" rel="noopener noreferrer">测试<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>平台。</p> <p><img src="/Users/mac/Desktop/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%89%93%E5%8C%85/%E6%8F%92%E4%BB%B62.png" alt=""></p> <h3 id="配置keychains-and-provisioning-profiles-management"><a href="#配置keychains-and-provisioning-profiles-management" class="header-anchor">#</a> 配置Keychains and Provisioning Profiles Management</h3> <p><img src="/Users/mac/Desktop/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%89%93%E5%8C%85/%E9%85%8D%E7%BD%AE1.png" alt="配置"></p> <p>前往文件路径~/Library/Keychains，将login.keychain-db复制出来删除-db，上传login.keychain。</p> <p>下图红框固定为/Users/用户名/Library/MobileDevice/Provisioning Profiles，在此路径下选择Provisioning Profiles文件，然后upload。</p> <p><img src="/Users/mac/Desktop/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%89%93%E5%8C%85/%E9%85%8D%E7%BD%AE2.png" alt="配置页面"></p> <h3 id="构建任务"><a href="#构建任务" class="header-anchor">#</a> 构建任务</h3> <h5 id="创建一个自由风格的任务"><a href="#创建一个自由风格的任务" class="header-anchor">#</a> 创建一个自由风格的任务</h5> <p><img src="/Users/mac/Desktop/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%89%93%E5%8C%85/%E6%9E%84%E5%BB%BA%E4%BB%BB%E5%8A%A11.png" alt="构建任务"></p> <h5 id="general"><a href="#general" class="header-anchor">#</a> General</h5> <p>选择丢弃旧的构建，至于天数和保持的最大个数，按照自己的需求来。</p> <p><img src="/Users/mac/Desktop/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%89%93%E5%8C%85/%E6%9E%84%E5%BB%BA%E4%BB%BB%E5%8A%A12.png" alt="构建任务2"></p> <h5 id="源码管理"><a href="#源码管理" class="header-anchor">#</a> 源码管理</h5> <p>在Repository URL里面添加git地址，使用ssh填上密钥。</p> <p><img src="/Users/mac/Desktop/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%89%93%E5%8C%85/%E6%9E%84%E5%BB%BA%E4%BB%BB%E5%8A%A13.png" alt="构建任务3"></p> <h5 id="构建触发器"><a href="#构建触发器" class="header-anchor">#</a> 构建触发器</h5> <p><img src="/Users/mac/Desktop/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%89%93%E5%8C%85/%E6%9E%84%E5%BB%BA%E4%BB%BB%E5%8A%A14.png" alt="构建任务4"></p> <h5 id="构建环境"><a href="#构建环境" class="header-anchor">#</a> 构建环境</h5> <p><img src="/Users/mac/Desktop/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%89%93%E5%8C%85/%E6%9E%84%E5%BB%BA%E4%BB%BB%E5%8A%A15.png" alt="构建任务5"></p> <h5 id="构建"><a href="#构建" class="header-anchor">#</a> 构建</h5> <p>导入脚本。</p> <p><img src="/Users/mac/Desktop/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%89%93%E5%8C%85/%E6%9E%84%E5%BB%BA%E4%BB%BB%E5%8A%A16.png" alt="构建任务6"></p> <h5 id="构建后操作"><a href="#构建后操作" class="header-anchor">#</a> 构建后操作</h5> <p>填写fir token、build Notes，构建完成自动上传至fir。</p> <p><img src="/Users/mac/Desktop/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%89%93%E5%8C%85/%E6%9E%84%E5%BB%BA%E4%BB%BB%E5%8A%A17.png" alt="构建任务7"></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/learn/jenkins/pipeline.html">
+        PipeLine
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/learn/assets/js/app.66695850.js" defer></script><script src="/learn/assets/js/2.7a3d2d1f.js" defer></script><script src="/learn/assets/js/9.6ed0d27e.js" defer></script>
+  </body>
+</html>
