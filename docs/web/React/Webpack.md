@@ -523,3 +523,40 @@ module.exports = {
 
 ## 
 
+## Webpack性能优化
+
+### 开发环境性能优化
+
+#### 优化打包构建速速
+
+HMR
+
+#### 优化代码调试
+
+source-map
+
+
+
+### 生产环境性能优化
+
+#### 优化打包构建速速
+
+oneOf
+
+babel缓存
+
+多进程打包
+
+#### 优化代码运行的性能
+
+缓存(hash/chunkhash/contenthash)
+
+tree shaking
+
+code split (optimizaiton)
+
+懒加载/预加载
+
+externals(让某些库不打包 通过cdm引入)
+
+dll (先打包)
