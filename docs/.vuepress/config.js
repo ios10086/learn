@@ -9,6 +9,10 @@ module.exports = {
             text: 'Google SEO',
             link: '/GoogleSeo/Why SEO.md'
         },
+        {
+            text: '商务英语',
+            link: '/商务英语/Words.md'
+        },
         // {
         //     text: 'Web开发技术积累',
         //     link: '/web/React/Webpack.md'
@@ -95,7 +99,9 @@ function getGoogleSeo(name) {
             title: 'Keyword research',
             collapsable: true,
             children: [
-                'Keyword research/Keyword research and search trends',
+                'Keyword research/How to do keyword research',
+                'Keyword research/Types of keyword research',
+                'Keyword research/LSI keyword',
             ]
         }
     ]
