@@ -13,6 +13,10 @@ module.exports = {
             text: '商务英语',
             link: '/商务英语/Words.md'
         },
+        {
+            text: '小知识',
+            link: '/小知识/国际贸易实务/贸易术语.md'
+        },
         // {
         //     text: 'Web开发技术积累',
         //     link: '/web/React/Webpack.md'
@@ -37,6 +41,7 @@ module.exports = {
                     '/web/': getWebSidebar('Web开发技术积累'),
                     '/jenkins/': getJenkinsSidebar('自动化打包'),
                     '/GoogleSeo/': getGoogleSeo('Google SEO'),
+                    '/小知识/': getInternationalTrade('国际贸易'),
                 }
             },
         }
@@ -102,7 +107,18 @@ function getGoogleSeo(name) {
                 'Keyword research/How to do keyword research',
                 'Keyword research/Types of keyword research',
                 'Keyword research/LSI keyword',
+                'Keyword research/Google Analytics reports',
+                'Keyword research/Google Tag Manager',
+                'Keyword research/High-quality content',
             ]
         }
     ]
+}
+
+function getInternationalTrade(name) {
+    return [{
+        title: '国际贸易实务',
+        collapsable: true,
+        children: ['国际贸易实务/贸易术语.md']
+    }]
 }
